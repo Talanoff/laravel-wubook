@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelWubook\Api;
+namespace Talanoff\LaravelWubook\Api;
 
-use IlGala\LaravelWubook\Api\WuBookApi;
+use Talanoff\LaravelWubook\Api\WuBookApi;
 
 /**
  * Description of WuBookTransactions

@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace IlGala\LaravelWubook\Api;
+namespace Talanoff\LaravelWubook\Api;
 
 use fXmlRpc\Client;
 use fXmlRpc\Exception\AbstractTransportException;
-use IlGala\WuBook\Exceptions\WuBookException;
+use Talanoff\WuBook\Exceptions\WuBookException;
 use Carbon\Carbon;
 
 /**
@@ -144,7 +144,7 @@ class WuBookAuth
      * @param string $token
      * @param boolean $request_new
      * @return int|string
-     * @throws IlGala\WuBook\Exceptions\WuBookException
+     * @throws Talanoff\WuBook\Exceptions\WuBookException
      */
     public function is_token_valid($token, $request_new = false)
     {
@@ -178,7 +178,7 @@ class WuBookAuth
      *
      * @param string $token
      * @return mixed
-     * @throws IlGala\WuBook\Exceptions\WuBookException
+     * @throws Talanoff\WuBook\Exceptions\WuBookException
      */
     public function provider_info($token = null)
     {

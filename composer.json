@@ -3,7 +3,7 @@
     "type": "library",
     "description": "A WuBook bridge for Laravel 5.x, 6.x, 7.x http://wubook.net",
     "keywords": [
-        "IlGala",
+        "Talanoff",
         "laravel-wubook",
         "laravel-package",
         "WuBook"

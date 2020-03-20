@@ -1,7 +1,7 @@
 # Laravel WuBook
 
 
-Laravel WuBook was created by, and is maintained by [Filippo Galante](https://github.com/ilgala), and is a [WuBook Wired API](http://tdocs.wubook.net/wired.html) bridge for [Laravel 5](http://laravel.com). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/ilgala/laravel-wubook/releases), [license](LICENSE), and [contribution guidelines](CONTRIBUTING.md). In order to use the API you have to request a provider key by sending an E-Mail at devel@wubook.net, in order to connect your WuBook account, and you'll be free to try all its features. 
+Laravel WuBook was created by, and is maintained by [Filippo Galante](https://github.com/Talanoff), and is a [WuBook Wired API](http://tdocs.wubook.net/wired.html) bridge for [Laravel 5](http://laravel.com). Feel free to check out the [change log](CHANGELOG.md), [releases](https://github.com/Talanoff/laravel-wubook/releases), [license](LICENSE), and [contribution guidelines](CONTRIBUTING.md). In order to use the API you have to request a provider key by sending an E-Mail at devel@wubook.net, in order to connect your WuBook account, and you'll be free to try all its features. 
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
@@ -18,7 +18,7 @@ Either [PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.6+ are required.
 To get the latest version of Laravel WuBook, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
-$ composer require ilgala/laravel-wubook
+$ composer require Talanoff/laravel-wubook
 ```
 
 Instead, you may of course manually update your require block and run `composer update` if you so choose:
@@ -26,7 +26,7 @@ Instead, you may of course manually update your require block and run `composer 
 ```json
 {
     "require": {
-        "IlGala/laravel-wubook": "0.1.0-alpha"
+        "Talanoff/laravel-wubook": "0.1.0-alpha"
     }
 }
 ```
@@ -38,7 +38,7 @@ Once Laravel WuBook is installed, you need to register the service provider. Ope
  ```php
  'providers' => [
     // OTHER PROVIDERS
-    'IlGala\LaravelWubook\WuBookServiceProvider::class'
+    'Talanoff\LaravelWubook\WuBookServiceProvider::class'
  ],
  ```
 
@@ -47,7 +47,7 @@ You can register the WuBook facade in the `aliases` key of your `config/app.php`
  ```php
  'aliases' => [
     // OTHER ALIASES
-    'WuBook' => IlGala\LaravelWubook\Facades\WuBook::class
+    'WuBook' => Talanoff\LaravelWubook\Facades\WuBook::class
  ],
  ```
 
@@ -62,7 +62,7 @@ $ php artisan vendor:publish
 
 # OR
 
-$ php artisan vendor:publish --provider=IlGala\LaravelWubook\WuBookServiceProvider
+$ php artisan vendor:publish --provider=Talanoff\LaravelWubook\WuBookServiceProvider
 ```
 
 This will create a `config/wubook.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
@@ -165,7 +165,7 @@ provider_info($token = null)
 Here you can see an example of just how simple this package is to use. Out of the box, the default `cache_token` parameter is set to false so:
 
 ```php
-use IlGala\LaravelWuBook\Facades\WuBook;
+use Talanoff\LaravelWuBook\Facades\WuBook;
 // you can alias this in config/app.php if you like
 
 // Retrieve the token
@@ -195,7 +195,7 @@ WuBook::rooms()->fetch_rooms(1)                 // See http://tdocs.wubook.net/w
 If you prefer to use dependency injection over facades like me, then you can easily inject the manager like so:
 
 ```php
-use IlGala\LaravelWuBook\WuBookManager;
+use Talanoff\LaravelWuBook\WuBookManager;
 use Illuminate\Support\Facades\App; // you probably have this aliased already
 
 class RoomManager
@@ -230,19 +230,19 @@ If you discover a security vulnerability within this package, please send an e-m
 
 Laravel WuBook is licensed under [The MIT License (MIT)](LICENSE).
 
-[ico-version]: https://img.shields.io/packagist/v/ilgala/laravel-wubook.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/Talanoff/laravel-wubook.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-style]: https://styleci.io/repos/86339392/shield?branch=master
-[ico-travis]: https://img.shields.io/travis/ilgala/laravel-wubook/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/ilgala/laravel-wubook.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/ilgala/laravel-wubook.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/ilgala/laravel-wubook.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/Talanoff/laravel-wubook/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/Talanoff/laravel-wubook.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/Talanoff/laravel-wubook.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/Talanoff/laravel-wubook.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/ilgala/laravel-wubook
+[link-packagist]: https://packagist.org/packages/Talanoff/laravel-wubook
 [link-style]: https://styleci.io/repos/86339392
-[link-travis]: https://travis-ci.org/ilgala/laravel-wubook
-[link-scrutinizer]: https://scrutinizer-ci.com/g/ilgala/laravel-wubook/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/ilgala/laravel-wubook
-[link-downloads]: https://packagist.org/packages/ilgala/laravel-wubook
-[link-author]: https://github.com/ilgala
+[link-travis]: https://travis-ci.org/Talanoff/laravel-wubook
+[link-scrutinizer]: https://scrutinizer-ci.com/g/Talanoff/laravel-wubook/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/Talanoff/laravel-wubook
+[link-downloads]: https://packagist.org/packages/Talanoff/laravel-wubook
+[link-author]: https://github.com/Talanoff
 [link-contributors]: ../../contributors

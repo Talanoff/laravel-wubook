@@ -2,7 +2,7 @@
 
 Contributions are **welcome** and will be fully **credited**.
 
-We accept contributions via Pull Requests on [Github](https://github.com/IlGala/laravel-wubook).
+We accept contributions via Pull Requests on [Github](https://github.com/Talanoff/laravel-wubook).
 
 
 ## Pull Requests
