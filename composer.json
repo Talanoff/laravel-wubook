@@ -33,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "talanoff\\LaravelWubook\\": "src"
+            "Talanoff\\LaravelWubook\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "talanoff\\LaravelWubook\\": "tests"
+            "Talanoff\\LaravelWubook\\": "tests"
         }
     },
     "scripts": {
