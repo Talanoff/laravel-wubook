@@ -11,22 +11,22 @@
 
 namespace Talanoff\LaravelWubook;
 
+use Arr;
 use fXmlRpc\Client;
 use fXmlRpc\Parser\NativeParser;
 use fXmlRpc\Serializer\NativeSerializer;
-use Illuminate\Contracts\Config\Repository;
-use Talanoff\LaravelWubook\Exceptions\WuBookException;
 use Talanoff\LaravelWubook\Api\WuBookAuth;
 use Talanoff\LaravelWubook\Api\WuBookAvailability;
 use Talanoff\LaravelWubook\Api\WuBookCancellationPolicies;
 use Talanoff\LaravelWubook\Api\WuBookChannelManager;
-use Talanoff\LaravelWubook\Api\WuBookCorporate;
+use Talanoff\LaravelWubook\Api\WuBookCorporateFunctions;
 use Talanoff\LaravelWubook\Api\WuBookExtras;
 use Talanoff\LaravelWubook\Api\WuBookPrices;
 use Talanoff\LaravelWubook\Api\WuBookReservations;
 use Talanoff\LaravelWubook\Api\WuBookRestrictions;
 use Talanoff\LaravelWubook\Api\WuBookRooms;
 use Talanoff\LaravelWubook\Api\WuBookTransactions;
+use Talanoff\LaravelWubook\Exceptions\WuBookException;
 
 /**
  * This is the WuBook manager class.
@@ -47,9 +47,29 @@ class WuBookManager
     private $config;
 
     /**
-     * @var Illuminate\Cache\Repository
+     * @var mixed
      */
     private $cache;
+
+    /**
+     * @var string
+     */
+    private $username;
+
+    /**
+     * @var string
+     */
+    private $password;
+
+    /**
+     * @var string
+     */
+    private $provider_key;
+
+    /**
+     * @var mixed
+     */
+    private $client;
 
     /**
      * Create a new WuBook Instance.
@@ -60,7 +80,7 @@ class WuBookManager
     public function __construct($config)
     {
         // Setup credentials
-        $this->config = \Arr::only($config->get('wubook'), ['username', 'password', 'provider_key', 'lcode']);
+        $this->config = Arr::only($config->get('wubook'), ['username', 'password', 'provider_key', 'lcode']);
 
         // Credentials check
         if (!array_key_exists('username', $this->config) || !array_key_exists('password', $this->config) || !array_key_exists('provider_key', $this->config) || !array_key_exists('lcode', $this->config)) {
@@ -78,7 +98,7 @@ class WuBookManager
     /**
      * Auth API
      *
-     * @return Talanoff\LaravelWubook\Api\WuBookAuth
+     * @return WuBookAuth
      */
     public function auth()
     {
@@ -92,7 +112,7 @@ class WuBookManager
      * Availability API
      *
      * @param string $token
-     * @return Talanoff\LaravelWubook\Api\WuBookAvailability
+     * @return WuBookAvailability
      */
     public function availability($token = null)
     {
@@ -106,7 +126,7 @@ class WuBookManager
      * Cancellation polices API
      *
      * @param string $token
-     * @return Talanoff\LaravelWubook\Api\WuBookCancellationPolicies
+     * @return WuBookCancellationPolicies
      */
     public function cancellation_policies($token = null)
     {
@@ -119,7 +139,7 @@ class WuBookManager
      * Channel manager API
      *
      * @param string $token
-     * @return Talanoff\LaravelWubook\Api\WuBookChannelManager
+     * @return WuBookChannelManager
      */
     public function channel_manager($token = null)
     {
@@ -133,21 +153,21 @@ class WuBookManager
      * Corporate function API
      *
      * @param string $token
-     * @return Talanoff\LaravelWubook\Api\WuBookCorporate
+     * @return WuBookCorporateFunctions
      */
     public function corporate_functions($token = null)
     {
         // Setup client
         $client = new Client(self::ENDPOINT, null, new NativeParser(), new NativeSerializer());
 
-        return new WuBookCorporate($this->config, $this->cache, $client, $token);
+        return new WuBookCorporateFunctions($this->config, $this->cache, $client, $token);
     }
 
     /**
      * Extra functions API
      *
      * @param string $token
-     * @return Talanoff\LaravelWubook\Api\WuBookExtras
+     * @return WuBookExtras
      */
     public function extras($token = null)
     {
@@ -161,7 +181,7 @@ class WuBookManager
      * Prices API
      *
      * @param string $token
-     * @return Talanoff\LaravelWubook\Api\WuBookPrices
+     * @return WuBookPrices
      */
     public function prices($token = null)
     {
@@ -175,7 +195,7 @@ class WuBookManager
      * Reservations API
      *
      * @param string $token
-     * @return Talanoff\LaravelWubook\Api\WuBookPrices
+     * @return WuBookReservations
      */
     public function reservations($token = null)
     {
@@ -189,7 +209,7 @@ class WuBookManager
      * Restrictions API
      *
      * @param string $token
-     * @return Talanoff\LaravelWubook\Api\WuBookRestrictions
+     * @return WuBookRestrictions
      */
     public function restrictions($token = null)
     {
@@ -203,7 +223,7 @@ class WuBookManager
      * Rooms API
      *
      * @param string $token
-     * @return Talanoff\LaravelWubook\Api\WuBookRooms
+     * @return WuBookRooms
      */
     public function rooms($token = null)
     {
@@ -217,7 +237,7 @@ class WuBookManager
      * Transactions API
      *
      * @param string $token
-     * @return Talanoff\LaravelWubook\Api\WuBookTransactions
+     * @return WuBookTransactions
      */
     public function transactions($token = null)
     {
@@ -258,9 +278,7 @@ class WuBookManager
     }
 
     /**
-     * Client getter.
-     *
-     * @return PhpXmlRpc\Client
+     * @return mixed
      */
     public function get_client()
     {
