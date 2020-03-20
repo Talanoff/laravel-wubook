@@ -11,8 +11,6 @@
 
 namespace Talanoff\LaravelWubook\Api;
 
-use Talanoff\LaravelWubook\Api\WuBookApi;
-
 /**
  * Description of WuBookTransactions
  *
@@ -28,6 +26,10 @@ class WuBookTransactions extends WuBookApi
 
     /**
      * Create a new WuBookRooms Instance.
+     * @param $config
+     * @param $cache
+     * @param $client
+     * @param null $token
      */
     public function __construct($config, $cache, $client, $token = null)
     {
@@ -43,7 +45,7 @@ class WuBookTransactions extends WuBookApi
      */
     public function balance_transactions()
     {
-        return $this->call_method($this->token, 'balance_transactions', [], ['token' => $this->get_token($token)]);
+        return $this->call_method($this->token, 'balance_transactions', []);
     }
 
     /**

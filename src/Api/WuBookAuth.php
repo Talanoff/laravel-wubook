@@ -13,7 +13,7 @@ namespace Talanoff\LaravelWubook\Api;
 
 use fXmlRpc\Client;
 use fXmlRpc\Exception\AbstractTransportException;
-use Talanoff\WuBook\Exceptions\WuBookException;
+use Talanoff\LaravelWubook\Exceptions\WuBookException;
 use Carbon\Carbon;
 
 /**
@@ -43,10 +43,10 @@ class WuBookAuth
      * Create a new WuBookAuth Instance.
      *
      * @param array $config
-     * @param \Illuminate\Cache\Repository $cache
+     * @param \Illuminate\Cache\CacheManager $cache
      * @param Client $client
      */
-    public function __construct(array $config, Illuminate\Cache\Repository $cache, Client $client)
+    public function __construct(array $config, \Illuminate\Cache\CacheManager $cache, Client $client)
     {
         $this->config = $config;
         $this->client = $client;

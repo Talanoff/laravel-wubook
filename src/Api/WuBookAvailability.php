@@ -28,6 +28,10 @@ class WuBookAvailability extends WuBookApi
 
     /**
      * Create a new WuBookAvailability Instance.
+     * @param $config
+     * @param $cache
+     * @param $client
+     * @param null $token
      */
     public function __construct($config, $cache, $client, $token = null)
     {

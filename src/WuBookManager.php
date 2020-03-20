@@ -39,7 +39,7 @@ class WuBookManager
     /**
      * @var string
      */
-    const ENDPOINT = 'https://wubook.net/xrws/';
+    const ENDPOINT = 'https://wired.wubook.net/xrws/';
 
     /**
      * @var array
@@ -54,16 +54,16 @@ class WuBookManager
     /**
      * Create a new WuBook Instance.
      *
-     * @param Repository $config
+     * @param $config
      * @throws WuBookException
      */
-    public function __construct(Repository $config)
+    public function __construct($config)
     {
         // Setup credentials
         $this->config = \Arr::only($config->get('wubook'), ['username', 'password', 'provider_key', 'lcode']);
 
         // Credentials check
-        if (!array_key_exists('username', $this->config) || !array_key_exists('password', $this->config) || !array_key_exists('provider_key', $this->config) || !array_key_exists('lcode', $this->lcode)) {
+        if (!array_key_exists('username', $this->config) || !array_key_exists('password', $this->config) || !array_key_exists('provider_key', $this->config) || !array_key_exists('lcode', $this->config)) {
             throw new WuBookException('Credentials are required!');
         }
 

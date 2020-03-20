@@ -28,6 +28,10 @@ class WuBookReservations extends WuBookApi
 
     /**
      * Create a new WuBookRooms Instance.
+     * @param $config
+     * @param $cache
+     * @param $client
+     * @param null $token
      */
     public function __construct($config, $cache, $client, $token = null)
     {
@@ -127,7 +131,7 @@ class WuBookReservations extends WuBookApi
      */
     public function get_fount_symbols()
     {
-        return $this->call_method($this->token, 'get_fount_symbols', [], ['token' => $this->get_token($this->token)]);
+        return $this->call_method($this->token, 'get_fount_symbols', []);
     }
 
     /**

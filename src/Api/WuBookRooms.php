@@ -28,6 +28,10 @@ class WuBookRooms extends WuBookApi
 
     /**
      * Create a new WuBookRooms Instance.
+     * @param $config
+     * @param $cache
+     * @param $client
+     * @param null $token
      */
     public function __construct($config, $cache, $client, $token = null)
     {
@@ -52,6 +56,7 @@ class WuBookRooms extends WuBookApi
      * http://tdocs.wubook.net/wired/rooms.html#new_virtual_room
      *
      * @param array $data
+     * @param bool $virtual
      * @return mixed
      */
     public function new_room($data, $virtual = false)
@@ -88,7 +93,7 @@ class WuBookRooms extends WuBookApi
      * The method will return a boolean only if response has no error.
      *
      * @param int $id
-     * @return boolean|string
+     * @return array|bool|string
      */
     public function del_room($id)
     {
@@ -112,7 +117,7 @@ class WuBookRooms extends WuBookApi
      * The method will return a boolean only if response has no error.
      *
      * @param string $url
-     * @return boolean|string
+     * @return array|bool|string
      */
     public function push_update_activation($url)
     {
@@ -122,7 +127,7 @@ class WuBookRooms extends WuBookApi
     /**
      * http://tdocs.wubook.net/wired/rooms.html#push_update_url
      *
-     * @return string
+     * @return array|string
      */
     public function push_update_url()
     {

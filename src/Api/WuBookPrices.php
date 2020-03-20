@@ -28,6 +28,10 @@ class WuBookPrices extends WuBookApi
 
     /**
      * Create a new WuBookRooms Instance.
+     * @param $config
+     * @param $cache
+     * @param $client
+     * @param null $token
      */
     public function __construct($config, $cache, $client, $token = null)
     {

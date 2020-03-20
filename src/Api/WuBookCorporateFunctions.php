@@ -28,6 +28,10 @@ class WuBookCorporateFunctions extends WuBookApi
 
     /**
      * Create a new WuBookRooms Instance.
+     * @param $config
+     * @param $cache
+     * @param $client
+     * @param null $token
      */
     public function __construct($config, $cache, $client, $token = null)
     {
@@ -50,7 +54,7 @@ class WuBookCorporateFunctions extends WuBookApi
             array_push($data, $acode);
         }
 
-        return $this->call_method($this->token, 'corporate_fetch_accounts', $data, ['token' => $this->get_token($this->token)]);
+        return $this->call_method($this->token, 'corporate_fetch_accounts', $data);
     }
 
     /**
@@ -61,7 +65,7 @@ class WuBookCorporateFunctions extends WuBookApi
      */
     public function corporate_get_providers_info($acodes = [])
     {
-        return $this->call_method($this->token, 'corporate_get_providers_info', [$acodes], ['token' => $this->get_token($this->token)]);
+        return $this->call_method($this->token, 'corporate_get_providers_info', [$acodes]);
     }
 
     /**
@@ -92,7 +96,7 @@ class WuBookCorporateFunctions extends WuBookApi
      */
     public function corporate_fetchable_properties()
     {
-        return $this->call_method($this->token, 'corporate_fetchable_properties', [], ['token' => $this->get_token($this->token)]);
+        return $this->call_method($this->token, 'corporate_fetchable_properties', []);
     }
 
     /**
@@ -175,7 +179,7 @@ class WuBookCorporateFunctions extends WuBookApi
      */
     public function corporate_balance_transactions()
     {
-        return $this->call_method($this->token, 'corporate_balance_transactions', [], ['token' => $this->get_token($this->token)]);
+        return $this->call_method($this->token, 'corporate_balance_transactions', []);
     }
 
     /**
@@ -186,6 +190,6 @@ class WuBookCorporateFunctions extends WuBookApi
      */
     public function corporate_balance_details($transactionId)
     {
-        return $this->call_method($this->token, 'corporate_balance_details', [$transactionId], ['token' => $this->get_token($this->token)]);
+        return $this->call_method($this->token, 'corporate_balance_details', [$transactionId]);
     }
 }

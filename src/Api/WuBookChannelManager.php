@@ -28,6 +28,10 @@ class WuBookChannelManager extends WuBookApi
 
     /**
      * Create a new WuBookRooms Instance.
+     * @param $config
+     * @param $cache
+     * @param $client
+     * @param null $token
      */
     public function __construct($config, $cache, $client, $token = null)
     {
@@ -43,7 +47,7 @@ class WuBookChannelManager extends WuBookApi
      */
     public function get_channel_symbols()
     {
-        return $this->call_method($this->token, 'get_channel_symbols', [], ['token' => $this->get_token($this->token)]);
+        return $this->call_method($this->token, 'get_channel_symbols', []);
     }
 
     /**

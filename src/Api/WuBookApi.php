@@ -72,7 +72,7 @@ abstract class WuBookApi
             ];
         }
 
-        $this->client->prependParams($token);
+        $this->client->prependParams($params);
     }
 
     /**
