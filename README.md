@@ -18,7 +18,7 @@ Either [PHP](https://php.net) 5.5+ or [HHVM](http://hhvm.com) 3.6+ are required.
 To get the latest version of Laravel WuBook, simply require the project using [Composer](https://getcomposer.org):
 
 ```bash
-$ composer require Talanoff/laravel-wubook
+$ composer require talanoff/laravel-wubook
 ```
 
 Instead, you may of course manually update your require block and run `composer update` if you so choose:
@@ -26,7 +26,7 @@ Instead, you may of course manually update your require block and run `composer 
 ```json
 {
     "require": {
-        "Talanoff/laravel-wubook": "0.1.0-alpha"
+        "talanoff/laravel-wubook": "0.1.*"
     }
 }
 ```
