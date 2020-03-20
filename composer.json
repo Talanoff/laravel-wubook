@@ -1,14 +1,14 @@
 {
-    "name": "ilgala/laravel-wubook",
+    "name": "talanoff/laravel-wubook",
     "type": "library",
-    "description": "A WuBook bridge for Laravel 5.x http://wubook.net",
+    "description": "A WuBook bridge for Laravel 5.x, 6.x, 7.x http://wubook.net",
     "keywords": [
         "IlGala",
         "laravel-wubook",
         "laravel-package",
         "WuBook"
     ],
-    "homepage": "https://github.com/ilgala/laravel-wubook",
+    "homepage": "https://github.com/talanoff/laravel-wubook",
     "license": "MIT",
     "authors": [
         {
@@ -33,12 +33,12 @@
     },
     "autoload": {
         "psr-4": {
-            "ilgala\\LaravelWubook\\": "src"
+            "talanoff\\LaravelWubook\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "ilgala\\LaravelWubook\\": "tests"
+            "talanoff\\LaravelWubook\\": "tests"
         }
     },
     "scripts": {
