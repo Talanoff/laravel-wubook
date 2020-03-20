@@ -55,17 +55,7 @@ You can register the WuBook facade in the `aliases` key of your `config/app.php`
 
 Laravel WuBook requires connection configuration.
 
-To get started, you'll need to publish all vendor assets:
-
-```bash
-$ php artisan vendor:publish
-
-# OR
-
-$ php artisan vendor:publish --provider=Talanoff\LaravelWubook\WuBookServiceProvider
-```
-
-This will create a `config/wubook.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
+Create a `config/wubook.php` file in your app that you can modify to set your configuration. Also, make sure you check for changes to the original config file in this package between releases.
 
 ##### Account parameters
 
