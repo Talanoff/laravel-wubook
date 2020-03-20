@@ -60,7 +60,7 @@ class WuBookManager
     public function __construct(Repository $config)
     {
         // Setup credentials
-        $this->config = array_only($config->get('wubook'), ['username', 'password', 'provider_key', 'lcode']);
+        $this->config = \Arr::only($config->get('wubook'), ['username', 'password', 'provider_key', 'lcode']);
 
         // Credentials check
         if (!array_key_exists('username', $this->config) || !array_key_exists('password', $this->config) || !array_key_exists('provider_key', $this->config) || !array_key_exists('lcode', $this->lcode)) {
